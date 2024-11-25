@@ -32,15 +32,15 @@ public class Kiosk {
                 i = 0;
                 j -= 1;
                 System.out.println();
-                for (MenuItem menu : allMenu.get(j).menuItems) {
+                for (MenuItem menu : allMenu.get(j).getMenuItems) {
                     System.out.println(++i + ". " + menu.getName() + "| W " + menu.getPrice() + " | " + menu.getExplanation());
                 }
             }
             System.out.println("0.   | 종료");
             i = scanner.nextInt();
-            if (0 < i && i <= allMenu.get(j).menuItems.size()) {
+            if (0 < i && i <= allMenu.get(j).getMenuItems.size()) {
                 i -= 1;
-                System.out.println(allMenu.get(j).menuItems.get(i).getName() + "| W " + allMenu.get(j).menuItems.get(i).getPrice() + " | " + allMenu.get(j).menuItems.get(i).getExplanation());
+                System.out.println(allMenu.get(j).getMenuItems.get(i).getName() + "| W " + allMenu.get(j).getMenuItems.get(i).getPrice() + " | " + allMenu.get(j).getMenuItems.get(i).getExplanation());
                 System.out.println();
             } else {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
