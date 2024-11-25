@@ -7,22 +7,41 @@ import java.util.Scanner;
 
 
 public class Kiosk {
-    List<MenuItem> menuItems = new ArrayList<>();
 
-    public void start () {
+    List<Menu> allMenu = new ArrayList<>();
+
+    public void start() {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("[ SHAKESHACK MENU ]");
+            System.out.println("[ MAIN MENU ]");
+
             int i = 0;
-            for (MenuItem menu : menuItems) {
-                System.out.println(++i + ". " + menu.getName() + "| W " + menu.getPrice() + " | " + menu.getExplanation());
+            for (Menu menu : allMenu) {
+                System.out.println(++i + ". " + menu.category);
             }
             System.out.println("0.   | 종료");
 
-            if (scanner.nextInt() == 0) {
+            int j = scanner.nextInt();
+            if (j == 0) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
+            } else if (!(0 < j && j <= allMenu.size())) {
+                continue;
+            } else {
+                i = 0;
+                j -= 1;
+                System.out.println();
+                for (MenuItem menu : allMenu.get(j).menuItems) {
+                    System.out.println(++i + ". " + menu.getName() + "| W " + menu.getPrice() + " | " + menu.getExplanation());
+                }
+            }
+            System.out.println("0.   | 종료");
+            i = scanner.nextInt();
+            if (0 < i && i <= allMenu.get(j).menuItems.size()) {
+                i -= 1;
+                System.out.println(allMenu.get(j).menuItems.get(i).getName() + "| W " + allMenu.get(j).menuItems.get(i).getPrice() + " | " + allMenu.get(j).menuItems.get(i).getExplanation());
+                System.out.println();
             } else {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
             }
@@ -30,7 +49,7 @@ public class Kiosk {
 
     }
 
-    public void setMenuItems(MenuItem... menuItems) {
-        this.menuItems.addAll(Arrays.asList(menuItems));
+    public void setAllMenu(Menu... Menus) {
+        this.allMenu.addAll(Arrays.asList(Menus));
     }
 }
