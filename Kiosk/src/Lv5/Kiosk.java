@@ -7,9 +7,14 @@ import java.util.Scanner;
 
 
 public class Kiosk {
-
+    /**
+     * List<Menu> 형식의 모든 메뉴데이터 저장
+     */
     private List<Menu> allMenu = new ArrayList<>();
 
+    /**
+     * 메인 프로그램 실행. 사용자의 입력값에 따라 탐색, 선택, 종료 기능 제공
+     */
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
@@ -49,6 +54,9 @@ public class Kiosk {
 
     }
 
+    /**
+     * 초기화 시 메뉴데이터 설정
+     */
     public void setAllMenu(Menu... Menus) {
         this.allMenu.addAll(Arrays.asList(Menus));
     }
