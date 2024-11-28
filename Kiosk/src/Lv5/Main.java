@@ -1,7 +1,9 @@
 package Lv5;
 
 public class Main {
-
+    /**
+     * 메뉴 데이터 생성 및 프로그램 실행
+     */
     public static void main(String[] args) {
 
         Kiosk kiosk = new Kiosk();
